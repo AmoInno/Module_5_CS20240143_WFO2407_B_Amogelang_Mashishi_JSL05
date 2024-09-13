@@ -65,7 +65,18 @@ guardianDiv.appendChild(guardianName);
 const songList = document.createElement("ul");
 playlists[guardian].forEach(song => {
     const songElement = document.createElement("li");
-    songElement.textContent = `${song.title} by ${song.artist}`;
+
+    const titleElement = document.createElement("span");
+    titleElement.classList.add("song-title");
+    titleElement.textContent = song.title
+
+    const artistElement = document.createElement("span");
+    artistElement.classList.add("artist");
+    artistElement.textContent = ` by ${song.artist}`;
+
+
+    songElement.appendChild(titleElement);
+    songElement.appendChild(artistElement);
     songList.appendChild(songElement);
 });
 
